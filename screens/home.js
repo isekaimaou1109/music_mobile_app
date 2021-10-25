@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, Image, FlatList, TouchableWithoutFeedback } from 'react-native'
+import React, { useState, useContext } from 'react'
+import { View } from 'react-native'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { Card } from 'react-native-elements'
 
@@ -8,96 +8,13 @@ import { global } from '../styles/global'
 
 import avatar from '../assets/avatar.jpg'
 
+import AlbumsScreen from '../components/albums'
+import { AppProvider } from '../App'
+
 const Tab = createMaterialTopTabNavigator();
 
 function SongsScreen() {
-    const data = [
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        },
-        {
-            songName: 'koko de ikiteru',
-            songAuthor: 'Mary x jon-YAKITORY',
-            thumbnail: require('../assets/1.jpg')
-        }
-    ]
-
-    const _onPress = function(item) {
-        console.log(item)
-    }
-
-    return <FlatList
-        contentContainerStyle={{ 
-            backgroundColor: 'white'
-        }}
-        columnWrapperStyle={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'space-evenly',
-            marginTop: 20
-        }}
-        data={data}
-        numColumns={2}
-        renderItem={({ item, index, separators }) => {
-            return <TouchableWithoutFeedback
-                key={item.key}
-                onPress={() => _onPress(item)}
-                onShowUnderlay={separators.highlight}
-                onHideUnderlay={separators.unhighlight}>
-                <View>
-                    <Image style={{ width: 144, height: 208 }} source={item.thumbnail} />
-                    <Text style={global.songName, { fontSize: 18, fontWeight: 'bold' }}>{item.songName}</Text>
-                    <Text style={global.songName, { fontSize: 12 }}>{item.songAuthor}</Text>
-                </View>
-            </TouchableWithoutFeedback>
-        }}
-    />
-}
-
-function AlbumsScreen() {
-    return <h1>Albums screen</h1>
+    return <View>Song screen</View>
 }
 
 function ArtistsScreen() {
@@ -105,8 +22,15 @@ function ArtistsScreen() {
 }
 
 export default function Home() {
+    const { height, currentScrollHeight } = useContext(AppProvider)
+
     return <View>
         <Tab.Navigator screenOptions={{
+            tabBarStyle: {
+                // position: 'fixed',
+                // zIndex: 3000,
+                // width: '100%'
+            },
             tabBarActiveTintColor: '#888',
             tabBarLabelStyle: { fontSize: 15 },
             tabBarIndicatorStyle: {

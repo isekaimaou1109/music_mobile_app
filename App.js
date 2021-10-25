@@ -49,7 +49,8 @@ function TabNavigator({
   
   const [fontLoaded, setFontLoaded] = React.useState(false)
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [dimensions, setDimensions] = React.useState({ width, height });
+  const [currentScrollHeight, setCurrentScrollHeight] = React.useState(0)
+  const [dimensions, setDimensions] = React.useState({ width, height, currentScrollHeight, setCurrentScrollHeight });
   
   // console.log(state)
   // console.log(navigation)

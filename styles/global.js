@@ -40,8 +40,6 @@ export const global = StyleSheet.create({
         fontSize: 'clamp(12px, 600px, 18px)'
     },
     songName: {
-        whiteSpace: 'nowrap',
-        overflow: 'hidden',
-        textOverflow: 'ellipsis'
+        paddingVertical: 5
     }
 })
